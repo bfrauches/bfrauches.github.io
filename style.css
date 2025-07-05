@@ -1,0 +1,40 @@
+header {
+    background-color: cadetblue;
+    padding: 15px;
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+}
+
+header p {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: lightcyan;
+    margin: 0;
+    font-family: Arial;
+}
+
+body h2 {
+    color: cadetblue
+}
+
+footer {
+    background-color: cadetblue;
+    color:white;
+    text-align: center;
+    padding: 10px;
+}
+
+img {
+    border-radius: 10px;
+    margin: 10px;
+}
+
+body li {
+    list-style-type: square;
+}
