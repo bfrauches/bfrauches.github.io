@@ -1,0 +1,100 @@
+.Galeria {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.divizinhas {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: transform .3s ease, box-shadow .3s ease;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+}
+
+.divizinhas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+.divizinhas img {
+    width: 500px;
+    border-radius: 12px;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.divizinhas h3 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.divizinhas p {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+}
+
+.infos {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+    background-image: url('../../../img/mapa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.infos::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(2px);
+}
+
+.infos * {
+    position: relative;
+}
+
+.infos > img {
+    width: 300px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255,255,255,0.7);
+}
+
+.information {
+    background: white;
+    color: #333;
+    padding: 22px;
+    margin: 20px auto;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff, #f2faff);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    max-width: 850px;
+    text-align: left;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.information:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
+@media (min-width: 900px) {
+    .information {
+        max-width: 900px;
+    }
+}
