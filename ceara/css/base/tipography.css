@@ -96,3 +96,53 @@ h2 {
 footer {
     text-align: center;
 }
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #06833b;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.gallery h3 {
+    margin-top: 40px;
+    color: #0b5c40;
+    font-size: 1.8rem;
+    border-left: 6px solid #0b7a53;
+    padding-left: 10px;
+}
+
+.gallery p {
+    font-size: 1.15rem;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.7;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gallery ul {
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    list-style: none;
+}
+
+.gallery ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.gallery ul li::before {
+    content: "• ";
+    color: #0b7a53;
+    font-size: 1.3rem;
+}

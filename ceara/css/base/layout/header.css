@@ -22,3 +22,11 @@ header .caminhos {
 header nav a:hover {
     color: rgb(255, 225, 0);
 }
+
+.cultura {
+    background: #06833b;
+    color: #fff;
+    padding: 30px 0 20px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
