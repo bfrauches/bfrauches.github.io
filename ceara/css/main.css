@@ -1,0 +1,65 @@
+/* RESPONSIVIDADE */
+
+/* Index */
+@media (max-width: 1024px) {
+    h1.index {
+        font-size: 10em;
+    }
+
+    .divizinhas {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .divizinhas img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1.index {
+        font-size: 5em;
+    }
+
+    .Galeria {
+        padding: 10px;
+    }
+
+    .information {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Cultura */
+.gallery img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery .img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .gallery img {
+        width: 45%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+}
