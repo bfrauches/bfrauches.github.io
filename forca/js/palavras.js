@@ -1,0 +1,1 @@
+const palavras = ["sus", "alo", "omdenodiseo", "capacapa", "pacapaca", "escalfoni", "berinjela", "boyceta", "letramento", "labtec"]

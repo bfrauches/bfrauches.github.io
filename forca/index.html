@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Forca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .tentativas {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .tentativas li {
+            width: 40px;
+            height: 40px;
+            border-bottom: 3px solid black;
+            font-size: 24px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #entrada {
+            width: 50px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Boneco */
+        .forca div {
+            display: none;
+            margin: 5px auto;
+            background: black;
+        }
+
+        .forca {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin: 20px auto;
+        }
+
+        #cabeca {
+            top: 0;
+            left: 85px;
+            width: 30px;
+            height: 30px;
+            border: 3px solid black;
+            border-radius: 50%;
+            display: none;
+        }
+
+        #corpo {
+            position: absolute;
+            top: 30px;
+            left: 100px;
+            width: 3px;
+            height: 60px;
+            background: black;
+            display: none;
+        }
+
+        #braco-esq {
+            position: absolute;
+            top: 40px;
+            left: 100px;
+            width: 40px;
+            height: 3px;
+            background: black;
+            transform: rotate(45deg);
+            transform-origin: left;
+            display: none;
+        }
+
+        #braco-dir {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            width: 40px;
+            height: 3px;
+            background: black;
+            transform: rotate(-45deg);
+            transform-origin: right;
+            display: none;
+        }
+
+        #perna-esq {
+            position: absolute;
+            top: 90px;
+            left: 100px;
+            width: 40px;
+            height: 3px;
+            background: black;
+            transform: rotate(45deg);
+            transform-origin: left;
+            display: none;
+        }
+
+        #perna-dir {
+            position: absolute;
+            top: 90px;
+            left: 60px;
+            width: 40px;
+            height: 3px;
+            background: black;
+            transform: rotate(-45deg);
+            transform-origin: right;
+            display: none;
+        }
+    </style>
+    <script src="js/forca.js" defer></script>
+    <script src="js/palavras.js" defer></script>
+</head>
+<body>
+
+    <h1>Jogo da Forca</h1>
+    <button id="comecar">Começar</button>
+    <ul class="tentativas"></ul>
+    <input type="text" id="entrada" maxlength="1">
+    <button id="jogar">Jogar</button>
+    <div class="forca">
+        <div id="cabeca"></div>
+        <div id="corpo"></div>
+        <div id="braco-esq"></div>
+        <div id="braco-dir"></div>
+        <div id="perna-esq"></div>
+        <div id="perna-dir"></div>
+    </div>
+</body>
+</html>
