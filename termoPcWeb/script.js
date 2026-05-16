@@ -136,7 +136,7 @@ mostrarMensagem(`Você possui ${tentativas} tentativa(s) restante(s).`);
 botao = document.querySelector("#enviar")
 botao.addEventListener("click", () => {
     //Pega a palavra digitada pelo usuário, converte tudo para maiúsculo e remove os espaços
-    const palavraDigitada = document.getElementById("palavra").value.toUpperCase(trim());
+    const palavraDigitada = document.getElementById("palavra").value.toUpperCase().trim();
 
     if(tentativas > 0) {
       // Verifica se a palavra digitada é diferente do tamanho padrão do jogo, que é 5!
@@ -150,7 +150,7 @@ botao.addEventListener("click", () => {
         for (let i = 0; i < 5; i++) {
           //Crie o elementos li
           const caixaLetra = document.querySelector("#grid");
-          caixaLetra.innerHTML += <li class="caixaLetra">palavraDigitada[i]</li>;
+          caixaLetra.innerHTML += "<li class="caixaLetra">palavraDigitada[i]</li>";
 
           //Continue o switch abaixo, mas agora colocando a classe para quando for "A" e quando for "-"
           switch(cores[i]) {
