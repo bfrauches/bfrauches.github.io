@@ -10,7 +10,7 @@ let tentativas = 6;
 
 //Gera um número aleatório entre 0 e 110 (quantidade atual que tem no banco de palavras - 1)
 
-const numeroAleatorio = Math.round(Math.random())*1000 % BancoDePalavras.length();
+const numeroAleatorio = Math.round(Math.random())*1000 % BancoDePalavras.length;
 console.log(numeroAleatorio);
 
 //Seleciona qual será a palavra escolhida para ser advinhada durante o jogo a partir do numero aleatório
