@@ -150,7 +150,7 @@ botao.addEventListener("click", () => {
         for (let i = 0; i < 5; i++) {
           //Crie o elementos li
           let caixaLetra = document.querySelector("#grid");
-          caixaLetra.innerHTML += `<li class="caixaLetra">palavraDigitada[i]</li>`;
+          caixaLetra.innerHTML += `<li class="caixaLetra">${palavraDigitada[i]}</li>`;
 
           //Continue o switch abaixo, mas agora colocando a classe para quando for "A" e quando for "-"
           switch(cores[i]) {
