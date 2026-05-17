@@ -173,7 +173,7 @@ botao.addEventListener("click", () => {
           
           //Diminui 1 das tentativas do usuário e informa o novo valor para o usuário - AQUI
           tentativas -= 1;
-          console.log(tentativas)
+          mostrarMensagem(`Você possui ${tentativas} tentativa(s) restante(s).`);
 
           //Se a palavra do jogo ser igual a digitada pelo usuário, então ele venceu! Informe uma mensagem de texto comemorando!
           //Se não, continua o jogo! A menos que tenha acabado as tentativas dele...
