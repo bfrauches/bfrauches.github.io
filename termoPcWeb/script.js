@@ -1,4 +1,3 @@
-
 //Array de palavras que vocês devem utilizar! Caso queiram adicionar mais alguma palavra, fiquem à vontade. 
 
 const BancoDePalavras = ["TERMO","CASAL","LIVRO","PEDRA","PORTA","CARRO","AVIAO","NORTE","SULCO","VERDE","PRETO","BRISA","FORTE","DORES","MENTE","CORPO","TEMPO","SABER","PODER","FALAR","ANDAR","COMER","VIVER","OLHAR","DIZER","LEVES","GRAVE","CLARO","TERRA","PLANO","LINHA","PONTO","FORMA","IDEIA","VALOR","SOMAR","SUBIR","JOGAR","CRIAR","AMIGO","FELIZ","RISOS","CHUVA","SOLAR","VENTO","NUVEM","PEDAL","FONTE","CAMPO","LIMPO","SUAVE","MAGIA","SONHO","LOUCO","CERTO","ERRAR","NIVEL","FRASE", "PENIS", "TEXTO","CONTA","CALMA","LONGE","PERTO","ENTRE","ANTES","TARDE","NOITE","HORAS","FIRME","FRACO","RAPTO","LENTO","NOVOS","VELHO","JOVEM","UNICO","CHEIO","VAZIO","ALTOS","BAIXO","LARGO","FINOS","ABRIR","FECHO","SAIDA","RODAR","GIRAR","PARAR","MEXER","TOCAR","OUVIR","PENSO","AGORA","NUNCA","CERCA","PORTO","PRAIA","ILHAS","PEDIR","PEGAR","SOLTO","BUSCA","ACHAR","PERDA","TENTE", "ERROS", "SABIA", "BOING", "METAL", "GALOS", "LONGE", "RITMO"];
@@ -150,23 +149,23 @@ botao.addEventListener("click", () => {
         for (let i = 0; i < 5; i++) {
           //Crie o elementos li
           let caixaLetra = document.querySelector("#grid");
-          caixaLetra.innerHTML += `<li class=\"caixaLetra\">${palavraDigitada[i]}</li>`;
-
+          
+          let resposta = "";
           //Continue o switch abaixo, mas agora colocando a classe para quando for "A" e quando for "-"
           switch(cores[i]) {
-            case "V": caixaLetra.classList.add("correto");
+            case "V": resposta = "correto";
             break;
             //Classe para o A: "existeMasErrado"
-            case "A": caixaLetra.classList.add("existeMasErrado");
+            case "A": resposta = "existeMasErrado";
             break;
-
             //Clase para o caso "-": "naoTem"
-            case "-": caixaLetra.classList.add("naoTem");
+            case "-": resposta = "naoTem";
             break;
           }
 
-          grid.appendChild(caixaLetra); 
-      	}
+          caixaLetra.innerHTML += `<li class=\"caixaLetra ${resposta}\">${palavraDigitada[i]}</li>`;
+      	} 
+
           //Reseta todas as variaveis para a próxima rodada
           document.getElementById("palavra").value = "";
           console.log(arrayPalavra);
