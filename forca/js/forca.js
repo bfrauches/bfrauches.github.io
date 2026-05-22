@@ -34,12 +34,11 @@ btnComecar.addEventListener("click", () => {
     palavraSorteada = sortearPalavra(palavras)
     montarTabuleiro(palavraSorteada)
 
-    // resetar boneco
+    // reseta boneco
     partesBoneco.forEach(parte => {
         document.querySelector(`#${parte}`).style.display = "none"
     })
 
-    console.log(palavraSorteada)
 })
 
 btnJogar.addEventListener("click", () => {
@@ -58,7 +57,7 @@ btnJogar.addEventListener("click", () => {
         }
     }
 
-    // se não acertou nenhuma letra
+    // se n acertou nenhuma letra
     if(acertou == 0) {
         if(erros < maxErros) {
             document.querySelector(`#${partesBoneco[erros]}`).style.display = "block"
@@ -70,7 +69,7 @@ btnJogar.addEventListener("click", () => {
         }
     }
 
-    // verificar vitória
+    // verifica vitoria
     let venceu = 1
     for(let i = 0; i < liDoDOM.length; i++) {
         if(liDoDOM[i].innerHTML == "") {

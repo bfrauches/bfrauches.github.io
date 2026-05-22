@@ -15,7 +15,6 @@ console.log(numeroAleatorio);
 //Seleciona qual será a palavra escolhida para ser advinhada durante o jogo a partir do numero aleatório
 
 const palavraDoJogo = BancoDePalavras[numeroAleatorio];
-console.log(palavraDoJogo);
 
 //Pega o endereço id da grid em que as letras ficarão
 
