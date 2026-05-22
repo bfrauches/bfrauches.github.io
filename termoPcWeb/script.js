@@ -88,13 +88,17 @@ function verificaCertos (palavraDigitada) {
  * @param {array} certinhos - Array com as posições das letras que já estão corretas - Verdes (Precisa da função acima)
  * @returns Array com as posições das letras que devem ser amarelas
  */
+
 function verificaAmarelos (palavraDigitada, certinhos) {
   let amarelin = [];
   for(let i=0; i<5; i++) {
-    if(i != certinhos[i]) {
+    if(!certinhos.includes(i)) {
       for(let j=0; j<arrayPalavra.length; j++) {
-        if(palavraDigitada.charAt(i) == arrayPalavra[j][0] && arrayPalavra[j][1] > 0)
+        if(palavraDigitada.charAt(i) == arrayPalavra[j][0] && arrayPalavra[j][1] > 0) {
           amarelin.push(i);
+          arrayPalavra[j][1]--;
+          break;
+        }
       }
     }
   }
@@ -114,11 +118,13 @@ function verificaPalavra (palavraDigitada) {
   // "V" - Verde
   // "A" - Amarelo
   // "-"" = Errado
-
-  for(let i=0; i<certinhos.length; i++)
-    cores.splice(certinhos[i], "V");
-  for(let i=0; i<amarelin.length; i++)
-    cores.splice(amarelin[i], "A");
+  
+  certinhos.forEach(posCerto => {
+    cores[posCerto] = "V";
+  });
+  amarelin.forEach(posAmarelo  => {
+    cores[posAmarelo] = "A";
+  });
 
   //Faça isso de acordo com as posições que devem ser verdes (certinhos), as posiçõs que vem devem ser amarelas (amarelin)
   //Os que sobrarem contiunuam como "-"
