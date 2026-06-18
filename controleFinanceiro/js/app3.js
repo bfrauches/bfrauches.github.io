@@ -103,8 +103,8 @@ btn.addEventListener("click", ()=> {
     //adicionar os elementos da lista no html
     carregarLista()
     //gerar estatísticas
+    gerarEstatisticas()
     gerarGrafico()
-    grafico.update()
 })
  
 /*
