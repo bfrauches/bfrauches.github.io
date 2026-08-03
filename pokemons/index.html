@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéSearch</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <label for="tipo">Pesquise o seu Pokémon:</label>&emsp;<input type="text" id="poke" placeholder="Digite"><br><br>
+    <label for="tipo">Tipo de Pokémon:</label>&emsp;
+    <select id="poke-tipo">
+        <!-- preencha com todos os tipos a partir de uma requisicao AJAX-->
+        <option value="">Todos</option>
+    </select>
+    <br><br>
+    <button id="buscar">Buscar</button>
+    <br><br>
+    <div class="poke-result">
+        Exibir aqui todos os Pokémons filtrados
+        <div class="poke">
+            <h3 class="poke-name"></h3>
+            <ul class="poke-skils"></ul>
+            <img src="" alt="" class="poke-photo">
+
+        </div>
+
+    </div>
+</body>
+
+</html>

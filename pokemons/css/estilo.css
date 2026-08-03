@@ -1,0 +1,10 @@
+.poke-result{
+    display: flex;
+}
+.poke{
+    width: 400px;
+    border:1px solid #000;
+    border-radius: 5px;
+    box-shadow: 2px 3px #999;
+    background-color: #ddd;
+}
