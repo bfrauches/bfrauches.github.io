@@ -45,13 +45,25 @@ const markAsLido = (livros, id) => {
     livros[livros.findIndex(id)].lido = true;
 }
 
-const remove = id => {
+const remove = livros => {
 
 }
 
-const estatistics = () => {
-
+function totalPaginas(livros) { 
+    return livros.reduce( 
+        (total, livro) => total + livro.paginas, 0 
+    ); 
 }
+
+function possuiLivrosNaoLidos(livros) { 
+    return livros.some(livro => !livro.lido); 
+} 
+
+function todosForamLidos(livros) { 
+    return livros.every(livro => livro.lido); 
+} 
+
+
 
 // dá visibilidade a algumas funções do arquivo js.
 module.exports= {add

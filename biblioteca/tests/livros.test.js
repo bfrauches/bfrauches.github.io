@@ -179,3 +179,43 @@ expect(resultado).toEqual(livros);
 
 });
 
+test("deve calcular o total de páginas", () => { 
+
+    const livros = [ 
+
+        { paginas: 100 }, 
+
+        { paginas: 250 }, 
+
+        { paginas: 150 } 
+
+    ]; 
+
+    expect(totalPaginas(livros)).toBe(500);
+}); 
+
+test("deve informar se existem livros não lidos", () => { 
+
+    const livros = [ 
+
+        { lido: true }, 
+
+        { lido: false } 
+
+    ]; 
+
+    expect(possuiLivrosNaoLidos(livros)) 
+
+        .toBe(true); 
+}); 
+
+test("deve verificar se todos os livros foram lidos", () => { 
+
+    const livros = [ 
+        { lido: true }, 
+        { lido: true } 
+    ]; 
+
+    expect(todosForamLidos(livros)) 
+        .toBe(true); 
+});
