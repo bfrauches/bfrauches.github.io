@@ -1,0 +1,103 @@
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* Título principal */
+h1 {
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 35px;
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Lista de jogos */
+ol {
+    list-style: none;
+    width: 100%;
+    max-width: 500px;
+    counter-reset: jogos;
+}
+
+/* Cartões */
+li {
+    counter-increment: jogos;
+    background: white;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+li:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Links */
+a {
+    display: block;
+    padding: 22px;
+    color: #5b4baf;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Número e ícone de cada jogo */
+a::before {
+    content: "🎮 ";
+}
+
+li:nth-child(1) a::before {
+    content: "❄️ ";
+}
+
+li:nth-child(2) a::before {
+    content: "🐦 ";
+}
+
+li:nth-child(3) a::before {
+    content: "⌨️ ";
+}
+
+/* Cor ao passar o mouse */
+a:hover {
+    background: #f0edff;
+    color: #764ba2;
+}
+
+/* Acessibilidade: navegação pelo teclado */
+a:focus-visible {
+    outline: 3px solid #ffbd59;
+    outline-offset: -4px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 20px;
+    }
+}
