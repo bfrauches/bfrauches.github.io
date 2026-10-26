@@ -1,5 +1,3 @@
-const livros = []
-
 /**
  * Função para adicionar novos livros na coleção
  * @param {*} livros - array de livros
@@ -15,7 +13,8 @@ const add = (livros, livro) => {
  * 
  * @param {*} id 
  */
-const get = id => livros.find(livro=>livro.id ==id)
+const get = (livros, id) =>
+    livros.find(livro => livro.id == id);
 
 /**
  * Função que pesquisa livros em uma coleção
@@ -42,11 +41,19 @@ function listUnread(livros) {
 } 
 
 const markAsLido = (livros, id) => {
-    livros[livros.findIndex(id)].lido = true;
+    const index = livros.findIndex(livro => livro.id == id);
+    if (index !== -1) {
+        livros[index].lido = true;
+    }
+    return livros;
 }
 
-const remove = livros => {
-
+const remove = (livros, id) => {
+    const index = livros.findIndex(livro => livro.id == id);
+    if (index !== -1) {
+        livros.splice(index, 1);
+    }
+    return livros;
 }
 
 function totalPaginas(livros) { 
@@ -63,14 +70,49 @@ function todosForamLidos(livros) {
     return livros.every(livro => livro.lido); 
 } 
 
+const estatistics = (livros) => {
+    const resultado = livros.reduce((total, livro) => {
+        total.totalLivros++;
+        if (livro.lido) {
+            total.lidos++;
+        } else {
+            total.naoLidos++;
+        }
+        return total;
+    }, {
+        totalLivros: 0,
+        lidos: 0,
+        naoLidos: 0
+    });
+    resultado.totalPaginas = totalPaginas(livros);
+    return resultado;
+}
 
+function salvarLivros(livros) {
+    localStorage.setItem(
+        "livros",
+        JSON.stringify(livros)
+    );
+}
+
+function carregarLivros() {
+    const dados = localStorage.getItem("livros");
+    if (!dados) {
+        return [];
+    }
+    return JSON.parse(dados);
+}
 
 // dá visibilidade a algumas funções do arquivo js.
-module.exports= {add
-    , remove
-    , get
-    , listLivroByTitulo
-    , listLivroByGenero
-    , markAsLido
-    , estatistics
-};
+if (typeof module !== "undefined") {
+    module.exports = {
+        add,
+        remove,
+        get,
+        listLivroByTitulo,
+        listLivroByGenero,
+        markAsLido,
+        totalPaginas,
+        estatistics
+    };
+}

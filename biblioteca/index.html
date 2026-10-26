@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/livros.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lista de Leituras</h1>
+    </header>
+    <main>
+        <form id="formLivro">
+            <input id="titulo" placeholder="Título"  required >
+            <input id="autor" placeholder="Autor" required >
+            <input id="genero" placeholder="Gênero" required >
+            <input id="paginas" type="number" placeholder="Páginas" required >
+            <button>Cadastrar</button>
+        </form>
+        <input id="pesquisa" placeholder="Pesquisar..."  >
+        <section id="estatisticas"></section>
+        <section id="listaLivros"></section>
+    </main>
+</body>
+</html>
