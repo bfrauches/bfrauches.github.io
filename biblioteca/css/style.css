@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fa;
+    color: #333;
+}
+
+header {
+    background-color: #284b70;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #284b70;
+}
+
+button {
+    padding: 12px;
+    background-color: #284b70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #183653;
+}
+
+#pesquisa {
+    margin-bottom: 20px;
+}
+
+#estatisticas,
+#listaLivros {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#estatisticas h2,
+#listaLivros h2 {
+    margin-bottom: 15px;
+    color: #284b70;
+}
+
+#listaLivros article {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #eef3f8;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 15px auto;
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+}
+
+#listaLivros button {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 15px;
+}
+
+#listaLivros button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+#listaLivros .remover {
+    background-color: #c0392b;
+}
+
+#listaLivros .remover:hover {
+    background-color: #922b21;
+}

@@ -219,3 +219,37 @@ test("deve verificar se todos os livros foram lidos", () => {
     expect(todosForamLidos(livros)) 
         .toBe(true); 
 });
+
+test("deve calcular as estatísticas dos livros", () => {
+    const livros = [
+        { id: 1, paginas: 100, lido: true },
+        { id: 2, paginas: 250, lido: false },
+        { id: 3, paginas: 150, lido: true },
+        { id: 4, paginas: 200, lido: false },
+        { id: 5, paginas: 300, lido: false }
+    ];
+
+    expect(estatistics(livros)).toEqual({
+        totalLivros: 5,
+        lidos: 2,
+        naoLidos: 3,
+        totalPaginas: 1000
+    });
+});
+
+test("deve salvar e recuperar livros", () => {
+
+    const livros = [
+        {
+            id: 1,
+            titulo: "JavaScript",
+            lido: false
+        }
+    ];
+
+    salvarLivros(livros);
+
+    const resultado = carregarLivros();
+
+    expect(resultado).toEqual(livros);
+});
