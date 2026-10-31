@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS loja CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE loja;
+
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    endereco VARCHAR(200) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    fabricante VARCHAR(100) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    data_venda DATE NOT NULL,
+    total_venda DECIMAL(10,2) NOT NULL DEFAULT 0,
+    CONSTRAINT fk_vendas_clientes FOREIGN KEY (cliente_id)
+        REFERENCES clientes(id) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS produtos_vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produto_id INT NOT NULL,
+    venda_id INT NOT NULL,
+    CONSTRAINT fk_pv_produtos FOREIGN KEY (produto_id)
+        REFERENCES produtos(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_pv_vendas FOREIGN KEY (venda_id)
+        REFERENCES vendas(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    UNIQUE KEY uq_produto_venda (produto_id, venda_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

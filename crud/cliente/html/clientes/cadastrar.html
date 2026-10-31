@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de cliente | Loja</title>
+    </head>
+    <body>
+        <main class="container">
+            <header class="topo">
+                <div>
+                    <a class="voltar" href="listar.html">← Voltar para clientes</a>
+                    <p class="eyebrow">CADASTROS</p>
+                    <h1 id="tituloPagina">Novo cliente</h1>
+                    <p class="subtitulo">Preencha os dados do cliente.</p>
+                </div>
+            </header>
+            <section class="painel">
+                <form id="formulario">
+                    <div class="form-grid">
+                        <div class="campo largo">
+                            <label for="nome">Nome *</label><input id="nome" maxlength="100" required>
+                        </div>
+                        <div class="campo largo">
+                            <label for="endereco">Endereço</label><input id="endereco" maxlength="200">
+                        </div>
+                    </div>
+                    <div id="mensagem" class="mensagem" role="alert"></div>
+                    <div class="form-acoes">
+                        <button type="submit" id="botaoSalvar">Cadastrar cliente</button>
+                        <a class="btn btn-secundario" href="listar.html">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <script src="../../js/api.js"></script>
+        <script src="../../js/clientes/cadastrar.js"></script>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Produtos | Loja</title></head>
+<body><main class="container">
+<header class="topo"><div><a class="voltar" href="../../index.html">← Menu principal</a><p class="eyebrow">CATÁLOGO</p><h1>Produtos</h1><p class="subtitulo">Gerencie os produtos cadastrados.</p></div><div class="acoes-topo"><a class="btn" href="cadastrar.html">+ Novo produto</a></div></header>
+<section class="painel"><div class="form-grid"><div class="campo"><label for="filtroNome">Buscar por nome</label><input id="filtroNome" type="search" placeholder="Digite o nome do produto"></div><div class="campo" style="justify-content:end"><button id="btnBuscar" type="button">Buscar</button></div></div><div id="mensagem" class="mensagem" role="alert"></div><div class="tabela-wrap"><table><thead><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Fabricante</th><th>Ações</th></tr></thead><tbody id="corpoTabela"></tbody></table></div></section>
+</main><script src="../../js/api.js"></script><script src="../../js/produtos/listar.js"></script></body></html>
