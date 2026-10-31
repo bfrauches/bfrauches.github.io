@@ -1,0 +1,10 @@
+exclude:
+  - "node_modules"
+  - "**/node_modules/**"
+  - "laboratorio_cafeteria_tdd/laboratorio_cafeteria_tdd/node_modules"
+  - "vendor"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - ".sass-cache"
+  - ".jekyll-cache"
+  - "gemfiles"
