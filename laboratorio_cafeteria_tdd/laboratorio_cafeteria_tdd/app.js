@@ -20,9 +20,6 @@ import {
     salvarPedido
 } from "./src/storage.js";
 
-const CHAVE_CARRINHO = "cafeteria_carrinho";
-const CHAVE_PEDIDOS = "cafeteria_pedidos";
-
 let produtos = [];
 let carrinho = carregarCarrinho();
 let categoriaAtual = "Todos";
@@ -38,15 +35,12 @@ function renderizarProdutos(lista) {
         lista.map(p => `
             <article class="produto">
                 <img src="${p.foto}" alt="${p.nome}">
-
                 <div class="produto-corpo">
                     <span class="produto-categoria">${p.categoria}</span>
                     <h3>${p.nome}</h3>
                     <p>${p.descricao}</p>
-
                     <div class="produto-rodape">
                         <span class="preco">${formatarMoeda(p.preco)}</span>
-
                         <button class="adicionar" data-id="${p.id}">
                             Adicionar
                         </button>
@@ -71,7 +65,6 @@ function renderizarCarrinho() {
                     <h4>${item.nome}</h4>
                     <p>${formatarMoeda(item.preco)}</p>
                 </div>
-
                 <div class="controles">
                     <button data-acao="diminuir" data-id="${item.id}">-</button>
                     <span>${item.quantidade}</span>
@@ -98,22 +91,25 @@ function renderizarCarrinho() {
 
 function atualizarProdutos() {
     let resultado = filtrarPorCategoria(produtos, categoriaAtual);
-
     const termo = document.querySelector("#busca").value;
 
     resultado = buscarProdutos(resultado, termo);
-
     renderizarProdutos(resultado);
 }
 
 async function carregarProdutos() {
     try {
         const resposta = await fetch("./produtos.json");
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possível carregar os produtos.");
+        }
+
         const dados = await resposta.json();
 
         produtos = dados.map((produto, indice) => ({
             ...produto,
-            id: indice + 1
+            id: produto.id ?? indice + 1
         }));
 
         atualizarProdutos();
@@ -126,7 +122,6 @@ document.querySelector("#busca").addEventListener("input", atualizarProdutos);
 
 document.querySelector("#categorias").addEventListener("click", evento => {
     const botao = evento.target.closest("[data-categoria]");
-
     if (!botao) return;
 
     categoriaAtual = botao.dataset.categoria;
@@ -136,13 +131,11 @@ document.querySelector("#categorias").addEventListener("click", evento => {
     });
 
     botao.classList.add("ativo");
-
     atualizarProdutos();
 });
 
 document.querySelector("#listaProdutos").addEventListener("click", evento => {
     const botao = evento.target.closest(".adicionar");
-
     if (!botao) return;
 
     const id = Number(botao.dataset.id);
@@ -151,13 +144,11 @@ document.querySelector("#listaProdutos").addEventListener("click", evento => {
     if (!produto) return;
 
     carrinho = adicionarAoCarrinho(carrinho, produto);
-
     renderizarCarrinho();
 });
 
 document.querySelector("#itensCarrinho").addEventListener("click", evento => {
     const botao = evento.target.closest("button[data-acao]");
-
     if (!botao) return;
 
     const id = Number(botao.dataset.id);
@@ -169,13 +160,9 @@ document.querySelector("#itensCarrinho").addEventListener("click", evento => {
 
     if (acao === "aumentar") {
         carrinho = alterarQuantidade(carrinho, id, item.quantidade + 1);
-    }
-
-    if (acao === "diminuir") {
+    } else if (acao === "diminuir") {
         carrinho = alterarQuantidade(carrinho, id, item.quantidade - 1);
-    }
-
-    if (acao === "remover") {
+    } else if (acao === "remover") {
         carrinho = removerDoCarrinho(carrinho, id);
     }
 
@@ -205,11 +192,9 @@ document.querySelector("#formPagamento").addEventListener("submit", evento => {
     if (!formaPagamento) return;
 
     const pedido = gerarPedido(carrinho, formaPagamento);
-
     salvarPedido(pedido);
 
     carrinho = [];
-
     renderizarCarrinho();
 
     document.querySelector("#mensagemPagamento").textContent =
